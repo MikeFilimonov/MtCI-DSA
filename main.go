@@ -3,13 +3,64 @@ package main
 import (
 	"MtCI-DSA/arrays"
 	"fmt"
+	"strings"
 )
 
 func main() {
 
 	// ex2()
-	usingArrays()
+	// usingArrays()
+	// fmt.Println(reverseAString("Cleverics"))
 
+	left := []int{4, 5, 67, 776}
+	right := []int{14, 67, 68, 408}
+
+	fmt.Println(mergeSortedArrays(left, right))
+
+}
+
+func mergeSortedArrays(left []int, right []int) []int {
+
+	if len(left) == 0 {
+		return right
+	}
+
+	if len(right) == 0 {
+		return left
+	}
+
+	i := 0
+	j := 0
+
+	var result []int
+
+	for k := 0; k < len(right)+len(left)-1; k++ {
+
+		if left[i] < right[j] {
+			result = append(result, left[i])
+			i++
+		} else {
+			result = append(result, right[j])
+			j++
+		}
+
+	}
+
+	return result
+
+}
+
+func reverseAString(input string) string {
+
+	runes := []rune(input)
+
+	var sb strings.Builder
+
+	for i := len(runes) - 1; i >= 0; i-- {
+		sb.WriteRune(runes[i])
+	}
+
+	return sb.String()
 }
 
 func usingArrays() {
