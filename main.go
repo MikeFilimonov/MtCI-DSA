@@ -1,10 +1,48 @@
 package main
 
-import "fmt"
+import (
+	"MtCI-DSA/arrays"
+	"fmt"
+)
 
 func main() {
 
-	ex2()
+	// ex2()
+	usingArrays()
+
+}
+
+func usingArrays() {
+
+	arrCapacity := 9
+	arr := arrays.New(arrCapacity)
+
+	// testing Push
+	arr.Push(10)
+
+	value, err := arr.Get(0)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(value)
+	}
+
+	// testing Pop
+	err = arr.Pop()
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("OK")
+	}
+
+	for i := 0; i < 3; i++ {
+		arr.Push(i)
+	}
+	fmt.Println(arr)
+
+	// testing deletion
+	arr.Delete(1)
+	fmt.Println(arr)
 
 }
 
@@ -57,7 +95,7 @@ func betterHasPairWithSum(collection []int, sum int) bool {
 	var mappo = make(map[int]bool)
 
 	// traverse the collection
-	for k, v := range collection {
+	for _, v := range collection {
 
 		// calculate the second operand as sum-op1 and check if the next checked value is equal to it
 
