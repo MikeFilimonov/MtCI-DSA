@@ -24,17 +24,222 @@ func main() {
 	// fmt.Println(twoSum(nums, 6))
 
 	testData := [][]int{
-		{-2, 1, -3, 4, -1, 2, 1, -5, 4},
-		{1},
-		{5, 4, -1, 7, 8},
-		{-2, 1},
-		{-2, -1},
+		// {-2, 1, -3, 4, -1, 2, 1, -5, 4},
+		// {1},
+		// {5, 4, -1, 7, 8},
+		// {-2, 1},
+		// {-2, -1},
+		// {0, -3, -2, -3, -2, 2, -3, 0, 1, -1},
+		// {0, 1, 0, 3, 12},
+		// {0},
+		{1, 2, 3, 4, 5, 6, 7},
 	}
 
 	for _, input := range testData {
 		// fmt.Println(maxSubArrayByKadane(input))
-		fmt.Println(maxSubArrayDC(input, 0, len(input)-1))
+		//fmt.Println(maxSubArrayDC(input, 0, len(input)-1))
+		// fmt.Println(kickAssMaxSubArray(input))
+		// fmt.Println(moveZeroes(input))
+		// moveZeroesInTheArray(input)
+		// fmt.Println(input)
+		// fmt.Println(input)
+		// fmt.Println(containsDuplicates(input))
+		// rotateArray(input, 3)
+		rotateLikeABoss(input, 3)
+		fmt.Print(input)
+
 	}
+
+}
+
+// Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+// Input: nums = [1,2,3,4,5,6,7], k = 3
+// Output: [5,6,7,1,2,3,4]
+
+func rotateLikeABoss(nums []int, k int) {
+
+	if k == 0 {
+		return
+	}
+
+	n := len(nums)
+	k %= n
+	reverse(nums, 0, n-1)
+	reverse(nums, 0, k-1)
+	reverse(nums, k, n-1)
+
+}
+
+func reverse(nums []int, start int, end int) {
+
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
+	}
+
+}
+
+func rotateArray(nums []int, k int) {
+
+	if len(nums) < 2 || k < 1 {
+		return
+	}
+
+	for cnt := 1; cnt <= k; cnt++ {
+
+		shiftedNums := make([]int, len(nums))
+		for i, _ := range nums {
+
+			nextI := i + 1
+			if nextI >= len(nums) {
+				nextI -= len(nums)
+			}
+
+			shiftedNums[nextI] = nums[i]
+		}
+
+		for k, v := range shiftedNums {
+			nums[k] = v
+		}
+	}
+
+}
+
+func containsDuplicates(nums []int) bool {
+
+	mappo := make(map[int]int)
+	for _, v := range nums {
+
+		_, found := mappo[v]
+
+		if found {
+			return true
+		} else {
+			mappo[v]++
+		}
+	}
+
+	return false
+
+}
+
+func moveZeroesInTheArray(nums []int) {
+
+	nonZeroIndex := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != 0 {
+			nums[i], nums[nonZeroIndex] = nums[nonZeroIndex], nums[i]
+			nonZeroIndex++
+		}
+	}
+
+}
+
+func moveZeroes(input []int) []int {
+
+	result := []int{}
+	if len(input) < 2 {
+		return input
+	}
+
+	// sort the array
+	input = mergeSort(input)
+
+	// calculate the shift value  (the zero-block length)
+	firstOccurence := slices.Index(input, 0)
+	currentPosition := firstOccurence
+
+	if currentPosition > -1 {
+
+		for {
+			if input[currentPosition] != 0 {
+				break
+			} else {
+				currentPosition++
+			}
+		}
+
+	}
+
+	// swap zeroes
+	if firstOccurence > 0 {
+		result = append(result, input[:firstOccurence-1]...)
+	}
+	result = append(result, input[currentPosition:]...)
+
+	nonZeroBlockLength := len(result)
+
+	for i := nonZeroBlockLength; i < len(input); i++ {
+		result = append(result, 0)
+	}
+
+	return result
+}
+
+//moveZeroes helpers{
+
+func merge(leftPart, rightPart []int) []int {
+
+	result := make([]int, 0, len(leftPart)+len(rightPart))
+
+	i, j := 0, 0
+
+	for i < len(leftPart) && j < len(rightPart) {
+
+		if leftPart[i] < rightPart[j] {
+			result = append(result, leftPart[i])
+			i++
+		} else {
+			result = append(result, rightPart[j])
+			j++
+		}
+
+	}
+
+	result = append(result, leftPart[i:]...)
+	result = append(result, rightPart[j:]...)
+
+	return result
+
+}
+
+func mergeSort(input []int) []int {
+
+	if len(input) < 2 {
+		return input
+	}
+
+	middlePoint := len(input) / 2
+	leftPart := input[:middlePoint]
+	rightPart := input[middlePoint:]
+
+	sortedLeft := mergeSort(leftPart)
+	sortedRight := mergeSort(rightPart)
+
+	return merge(sortedLeft, sortedRight)
+
+}
+
+// }moveZeroes helpers
+
+func kickAssMaxSubArray(nums []int) int {
+
+	var maxSubsum = nums[0]
+	var currentSum = 0
+
+	for _, num := range nums {
+
+		if currentSum < 0 {
+			currentSum = 0
+		}
+
+		currentSum += num
+		maxSubsum = max(maxSubsum, currentSum)
+
+	}
+
+	return maxSubsum
 
 }
 
