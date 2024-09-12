@@ -2,6 +2,7 @@ package main
 
 import (
 	"MtCI-DSA/arrays"
+	"MtCI-DSA/hashmaps"
 	"fmt"
 )
 
@@ -12,6 +13,15 @@ func main() {
 }
 
 func hashMapSession() {
+
+	fmt.Println(hashmaps.NaiveHash("ershov"))
+	fmt.Println(hashmaps.NaiveHash("choovarsh"))
+	h := hashmaps.New(50)
+	h.Set("wallet", 10000)
+	h.Set("clamp", 8000)
+	fmt.Println(h.Get("clamp"))
+
+	// fmt.Println(hashmaps.NaiveHash("sdfsd"))
 
 }
 

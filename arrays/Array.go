@@ -15,8 +15,8 @@ type Array struct {
 	data     []interface{}
 }
 
-func New(capacity int) Array {
-	return Array{
+func New(capacity int) *Array {
+	return &Array{
 		length:   0,
 		capacity: capacity,
 		data:     []any{},
