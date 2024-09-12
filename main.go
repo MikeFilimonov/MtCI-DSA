@@ -21,6 +21,8 @@ func hashMapSession() {
 	h.Set("clamp", 8000)
 	fmt.Println(h.Get("clamp"))
 
+	fmt.Println(h.Keys())
+
 	// fmt.Println(hashmaps.NaiveHash("sdfsd"))
 
 }

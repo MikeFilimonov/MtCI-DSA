@@ -5,6 +5,20 @@ type HashMap struct {
 	data [][]any
 }
 
+func (h *HashMap) Keys() []string {
+
+	var result []string
+
+	for _, v := range h.data {
+		if len(v) > 1 {
+			result = append(result, v[0].(string))
+		}
+	}
+
+	return result
+
+}
+
 func (h *HashMap) Set(key string, value any) {
 
 	element := make([]any, 2)
@@ -49,7 +63,6 @@ func NaiveHash(data string) int {
 	result := 0
 
 	for k, v := range runes {
-		// fmt.Println(int(v))
 		result += (result + int(v)*k) % len(data)
 	}
 

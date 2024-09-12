@@ -115,7 +115,7 @@ func RotateArray(nums []int, k int) {
 	for cnt := 1; cnt <= k; cnt++ {
 
 		shiftedNums := make([]int, len(nums))
-		for i, _ := range nums {
+		for i := range nums {
 
 			nextI := i + 1
 			if nextI >= len(nums) {
@@ -356,7 +356,7 @@ func MaxSubArrayByKadane(nums []int) int {
 	result := nums[0]
 
 	// starting point of  the subarray
-	for index, _ := range nums {
+	for index := range nums {
 
 		currentSum := 0
 
