@@ -12,6 +12,29 @@ func main() {
 	hashMapSession()
 }
 
+func firstRecurringCharacter(input []int) int {
+
+	buffer := make(map[int]int)
+
+	if len(input) < 2 {
+		return -1
+	}
+
+	for k, v := range input {
+
+		_, found := buffer[v]
+		if found {
+			return v
+		} else {
+			buffer[v] = k
+		}
+
+	}
+
+	return -1
+
+}
+
 func hashMapSession() {
 
 	fmt.Println(hashmaps.NaiveHash("ershov"))
