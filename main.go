@@ -3,13 +3,34 @@ package main
 import (
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/hashmaps"
+	"MtCI-DSA/linked_lists"
 	"fmt"
 )
 
 func main() {
 
 	// arraySession()
-	hashMapSession()
+	// hashMapSession()
+	linkedListSession()
+}
+
+func linkedListSession() {
+
+	list := linked_lists.New(10)
+	list.Append(5)
+	list.Append(16)
+	list.Prepend(1)
+
+	currentValue := list.Head()
+	fmt.Println("head:", currentValue)
+
+	for currentValue != nil {
+
+		fmt.Println(currentValue)
+		currentValue = currentValue.Next()
+
+	}
+
 }
 
 func firstRecurringCharacter(input []int) int {
