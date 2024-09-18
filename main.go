@@ -20,16 +20,11 @@ func linkedListSession() {
 	list.Append(5)
 	list.Append(16)
 	list.Prepend(1)
-
-	currentValue := list.Head()
-	fmt.Println("head:", currentValue)
-
-	for currentValue != nil {
-
-		fmt.Println(currentValue)
-		currentValue = currentValue.Next()
-
-	}
+	list.Insert(90, 1)
+	list.Insert(11, 10)
+	list.ShowList()
+	list.Delete(2)
+	list.ShowList()
 
 }
 
