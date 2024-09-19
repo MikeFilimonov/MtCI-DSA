@@ -218,6 +218,57 @@ func (d *DoublyLinkedList) Insert(value any, position int) error {
 
 }
 
+func (l *LinkedList) BetterReverse() *LinkedList {
+
+	if l.head.next == nil {
+		return l
+	}
+
+	firstItem := l.head
+	l.tail = l.head
+	secondItem := firstItem.next
+
+	for secondItem != nil {
+
+		tmp := secondItem.next
+		secondItem.next = firstItem
+		firstItem = secondItem
+		secondItem = tmp
+
+	}
+
+	l.head.next = nil
+	l.head = firstItem
+
+	return l
+
+}
+
+func (l *LinkedList) Reverse() *LinkedList {
+
+	buffer := []int{}
+	loopCount := l.length
+
+	for i := loopCount; i > 0; i-- {
+		buffer = append(buffer, l.TraverseToIndex(i-1).data.(int))
+	}
+
+	if len(buffer) > 0 {
+
+		result := New(buffer[0])
+
+		for i := 1; i < len(buffer); i++ {
+			result.Append(buffer[i])
+		}
+
+		return result
+
+	}
+
+	return nil
+
+}
+
 func (l *LinkedList) Insert(value any, position int) error {
 
 	if position < 0 {

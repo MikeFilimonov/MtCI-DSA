@@ -11,8 +11,8 @@ func main() {
 
 	// arraySession()
 	// hashMapSession()
-	//linkedListSession()
-	doubleLinkedListSession()
+	linkedListSession()
+	// doubleLinkedListSession()
 }
 
 func doubleLinkedListSession() {
@@ -37,6 +37,11 @@ func linkedListSession() {
 	list.Insert(11, 10)
 	list.ShowList()
 	list.Delete(2)
+	list.ShowList()
+	result := list.Reverse()
+	result.ShowList()
+	list.ShowList()
+	list.BetterReverse()
 	list.ShowList()
 
 }
