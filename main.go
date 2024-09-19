@@ -11,7 +11,20 @@ func main() {
 
 	// arraySession()
 	// hashMapSession()
-	linkedListSession()
+	//linkedListSession()
+	doubleLinkedListSession()
+}
+
+func doubleLinkedListSession() {
+
+	doubleLinkedList := linked_lists.NewDoublyLinkedList(9)
+	doubleLinkedList.Append(99)
+	doubleLinkedList.Prepend(8)
+	doubleLinkedList.Insert(999, 2)
+	doubleLinkedList.Delete(0)
+	doubleLinkedList.Delete(1)
+	doubleLinkedList.ShowList()
+
 }
 
 func linkedListSession() {
