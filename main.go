@@ -4,6 +4,7 @@ import (
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/hashmaps"
 	"MtCI-DSA/linked_lists"
+	"MtCI-DSA/stacks"
 	"fmt"
 )
 
@@ -11,8 +12,41 @@ func main() {
 
 	// arraySession()
 	// hashMapSession()
-	linkedListSession()
+	// linkedListSession()
 	// doubleLinkedListSession()
+	stackSession()
+}
+
+func stackSession() {
+
+	// stack := stacks.NewStack()
+	// fmt.Println(stack.Peek())
+
+	// stack.Push(9)
+	// fmt.Println(stack.Peek())
+
+	// stack.Push(99)
+	// fmt.Println(stack.Peek())
+
+	// stack.Push(999)
+	// fmt.Println(stack.Peek())
+
+	// stack.Pop()
+	// fmt.Println(stack.Peek())
+
+	// stack.Pop()
+	// fmt.Println(stack.Peek())
+
+	arrayBasedStack := stacks.NewArrayBasedStack()
+	arrayBasedStack.Peek()
+
+	arrayBasedStack.Push(9)
+	arrayBasedStack.Peek()
+	arrayBasedStack.Push(99)
+	arrayBasedStack.Peek()
+	arrayBasedStack.Pop()
+	arrayBasedStack.Peek()
+
 }
 
 func doubleLinkedListSession() {
@@ -40,7 +74,6 @@ func linkedListSession() {
 	list.ShowList()
 	result := list.Reverse()
 	result.ShowList()
-	list.ShowList()
 	list.BetterReverse()
 	list.ShowList()
 
