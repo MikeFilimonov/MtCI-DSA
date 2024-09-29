@@ -6,6 +6,7 @@ import (
 	"MtCI-DSA/linked_lists"
 	"MtCI-DSA/queues"
 	"MtCI-DSA/stacks"
+	"MtCI-DSA/trees"
 	"fmt"
 )
 
@@ -17,7 +18,25 @@ func main() {
 	// doubleLinkedListSession()
 	// stackSession()
 	// queueSession()
-	qosSession()
+	// qosSession()
+	treesSession()
+}
+
+func treesSession() {
+
+	bst := trees.NewBinaryTree(9)
+	bst.Insert(4)
+	bst.Insert(6)
+	bst.Insert(20)
+	bst.Insert(170)
+	bst.Insert(15)
+	bst.Insert(1)
+
+	fmt.Println(bst.Traverse(bst.Root()))
+
+	fmt.Println(bst.Lookup(15))
+	fmt.Println(bst.Lookup(156))
+
 }
 
 func qosSession() {
