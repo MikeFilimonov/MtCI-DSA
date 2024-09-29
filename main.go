@@ -4,6 +4,7 @@ import (
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/hashmaps"
 	"MtCI-DSA/linked_lists"
+	"MtCI-DSA/queues"
 	"MtCI-DSA/stacks"
 	"fmt"
 )
@@ -14,28 +15,60 @@ func main() {
 	// hashMapSession()
 	// linkedListSession()
 	// doubleLinkedListSession()
-	stackSession()
+	// stackSession()
+	// queueSession()
+	qosSession()
+}
+
+func qosSession() {
+
+	qos := queues.Constructor()
+	fmt.Println(qos.IsEmpty())
+
+	qos.Push(1)
+	fmt.Println(qos.Peek())
+	qos.Push(2)
+	fmt.Println(qos.Peek())
+	fmt.Println(qos.Pop())
+	fmt.Println(qos.Peek())
+
+}
+
+func queueSession() {
+
+	queue := queues.NewQueue()
+	fmt.Println(queue.Peek())
+
+	queue.Enqueue(3)
+	fmt.Println(queue.Peek())
+
+	queue.Enqueue(9)
+	fmt.Println(queue.Peek())
+
+	queue.Dequeue()
+	fmt.Println(queue.Peek())
+
 }
 
 func stackSession() {
 
-	// stack := stacks.NewStack()
-	// fmt.Println(stack.Peek())
+	stack := stacks.NewStack()
+	fmt.Println(stack.Peek())
 
-	// stack.Push(9)
-	// fmt.Println(stack.Peek())
+	stack.Push(9)
+	fmt.Println(stack.Peek())
 
-	// stack.Push(99)
-	// fmt.Println(stack.Peek())
+	stack.Push(99)
+	fmt.Println(stack.Peek())
 
-	// stack.Push(999)
-	// fmt.Println(stack.Peek())
+	stack.Push(999)
+	fmt.Println(stack.Peek())
 
-	// stack.Pop()
-	// fmt.Println(stack.Peek())
+	stack.Pop()
+	fmt.Println(stack.Peek())
 
-	// stack.Pop()
-	// fmt.Println(stack.Peek())
+	stack.Pop()
+	fmt.Println(stack.Peek())
 
 	arrayBasedStack := stacks.NewArrayBasedStack()
 	arrayBasedStack.Peek()
