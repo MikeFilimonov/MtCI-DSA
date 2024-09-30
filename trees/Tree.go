@@ -129,15 +129,132 @@ func (t *BinaryTree) Traverse(node *BinaryTreeNode) *BinaryTreeNode {
 
 }
 
-func (t *BinaryTree) Remove(value int) {
+func (t *BinaryTree) RemoveLikeABoss(value int) {
+
+	if t.root == nil {
+		return
+	}
 
 	currentNode := t.root
 
-	nodeToRemove := t.Lookup(value)
-	if nodeToRemove == nil {
-		return
-	} else {
+	for currentNode != nil {
+
+		previousNode := currentNode
+
+		if currentNode.data > value {
+			currentNode = currentNode.rightSideOfTheTree
+		} else if currentNode.data < value {
+			currentNode = currentNode.leftSideOfTheTree
+		} else {
+
+			// no right children
+			if currentNode.rightSideOfTheTree == nil {
+				if previousNode == nil {
+					t.root = currentNode.leftSideOfTheTree
+				} else {
+
+					if currentNode.data < previousNode.data {
+						previousNode.leftSideOfTheTree = currentNode.leftSideOfTheTree
+					} else if currentNode.data > previousNode.data {
+						previousNode.rightSideOfTheTree = currentNode.leftSideOfTheTree
+					}
+				}
+
+				// right child without a left child
+			} else if currentNode.rightSideOfTheTree.leftSideOfTheTree == nil {
+
+				currentNode.rightSideOfTheTree.leftSideOfTheTree = currentNode.leftSideOfTheTree
+				if previousNode == nil {
+					t.root = currentNode.rightSideOfTheTree
+				} else {
+
+					if currentNode.data < previousNode.data {
+						previousNode.leftSideOfTheTree = currentNode.rightSideOfTheTree
+					} else if currentNode.data > previousNode.data {
+						previousNode.rightSideOfTheTree = currentNode.rightSideOfTheTree
+					}
+				}
+
+				// right child that has a left child
+			} else {
+
+				leftmost := currentNode.rightSideOfTheTree.leftSideOfTheTree
+				leftmostParent := currentNode.rightSideOfTheTree
+				for leftmost.leftSideOfTheTree != nil {
+					leftmostParent = leftmost
+					leftmost = leftmost.leftSideOfTheTree
+				}
+
+				// parent's left subtree is now the leftmost's right subtree
+				leftmostParent.leftSideOfTheTree = leftmost.rightSideOfTheTree
+				leftmost.leftSideOfTheTree = currentNode.leftSideOfTheTree
+				leftmost.rightSideOfTheTree = currentNode.rightSideOfTheTree
+
+				if previousNode == nil {
+					t.root = leftmost
+				} else {
+					if currentNode.data < previousNode.data {
+						previousNode.leftSideOfTheTree = leftmost
+					} else if currentNode.data > previousNode.data {
+						previousNode.rightSideOfTheTree = leftmost
+					}
+				}
+				return
+
+			}
+
+		}
 
 	}
 
+}
+
+func (t *BinaryTree) Remove(value int) {
+
+	if t.root == nil {
+		return
+	}
+
+	currentNode := t.root
+	var previousNode *BinaryTreeNode
+	previousNode = nil
+
+	for currentNode != nil {
+
+		if currentNode.data == value {
+			break
+		}
+
+		previousNode = currentNode
+		if currentNode.data > value {
+			currentNode = currentNode.rightSideOfTheTree
+		} else {
+			currentNode = currentNode.leftSideOfTheTree
+		}
+
+	}
+
+	var newNode *BinaryTreeNode
+	newNode = nil
+	if currentNode.rightSideOfTheTree != nil {
+
+		newNode = currentNode.rightSideOfTheTree
+
+		if newNode.leftSideOfTheTree != nil {
+			newNode = newNode.leftSideOfTheTree
+		}
+
+	} else if newNode != nil {
+		newNode = newNode.leftSideOfTheTree
+	}
+
+	if newNode != nil {
+
+		if newNode.data > previousNode.data {
+			previousNode.rightSideOfTheTree = newNode
+		} else {
+			previousNode.leftSideOfTheTree = newNode
+		}
+
+	}
 }
