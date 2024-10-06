@@ -1,6 +1,7 @@
 package main
 
 import (
+	"MtCI-DSA/algos/recursion"
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/graphs"
 	"MtCI-DSA/hashmaps"
@@ -21,7 +22,20 @@ func main() {
 	// queueSession()
 	// qosSession()
 	// treesSession()
-	graphSession()
+	// graphSession()
+	recursiveBlock()
+}
+
+func recursiveBlock() {
+
+	// fmt.Println(recursion.FindFactorialIterative(5))
+	// fmt.Println(recursion.FindFactorialRecursive(5))
+	// fmt.Println(recursion.FibonacciIterative(8))
+	// fmt.Println(recursion.FibonacciRecursive(8))
+
+	fmt.Println(recursion.RevertStringIteratively("fuckdictators"))
+	fmt.Println(recursion.RevertStringIteratively("fuckdictators"))
+
 }
 
 func graphSession() {

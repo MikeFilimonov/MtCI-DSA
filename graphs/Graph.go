@@ -17,11 +17,6 @@ func NewGraph() *Graph {
 
 func (g *Graph) AddVertex(n int) {
 
-	// if len(g.adjacentList) > 0 {
-	// 	neighbouringPosition := len(g.adjacentList) - 1
-	// 	g.adjacentList[neighbouringPosition] =
-	// 		append(g.adjacentList[neighbouringPosition], n)
-	// }
 	g.adjacentList[n] = []int{}
 	g.numberOfNodes++
 }
