@@ -2,6 +2,7 @@ package main
 
 import (
 	"MtCI-DSA/arrays"
+	"MtCI-DSA/graphs"
 	"MtCI-DSA/hashmaps"
 	"MtCI-DSA/linked_lists"
 	"MtCI-DSA/queues"
@@ -19,7 +20,30 @@ func main() {
 	// stackSession()
 	// queueSession()
 	// qosSession()
-	treesSession()
+	// treesSession()
+	graphSession()
+}
+
+func graphSession() {
+
+	grapho := graphs.NewGraph()
+	grapho.AddVertex(0)
+	grapho.AddVertex(1)
+	grapho.AddVertex(2)
+	grapho.AddVertex(3)
+	grapho.AddVertex(4)
+	grapho.AddVertex(5)
+	grapho.AddVertex(6)
+	grapho.AddEdge(3, 1)
+	grapho.AddEdge(3, 4)
+	grapho.AddEdge(4, 2)
+	grapho.AddEdge(4, 5)
+	grapho.AddEdge(1, 2)
+	grapho.AddEdge(1, 0)
+	grapho.AddEdge(0, 2)
+	grapho.AddEdge(6, 5)
+
+	grapho.ShowConnections()
 }
 
 func treesSession() {

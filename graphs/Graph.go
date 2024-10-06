@@ -2,6 +2,44 @@ package graphs
 
 import "fmt"
 
+type Graph struct {
+	// undirected and unweighted, using adjacency list
+	numberOfNodes int
+	adjacentList  map[int][]int
+}
+
+func NewGraph() *Graph {
+	return &Graph{
+		numberOfNodes: 0,
+		adjacentList:  map[int][]int{},
+	}
+}
+
+func (g *Graph) AddVertex(n int) {
+
+	// if len(g.adjacentList) > 0 {
+	// 	neighbouringPosition := len(g.adjacentList) - 1
+	// 	g.adjacentList[neighbouringPosition] =
+	// 		append(g.adjacentList[neighbouringPosition], n)
+	// }
+	g.adjacentList[n] = []int{}
+	g.numberOfNodes++
+}
+
+func (g *Graph) AddEdge(nodeA, nodeB int) {
+	//undirected graph
+	g.adjacentList[nodeA] = append(g.adjacentList[nodeA], nodeB)
+	g.adjacentList[nodeB] = append(g.adjacentList[nodeB], nodeA)
+}
+
+func (g *Graph) ShowConnections() {
+
+	for i := 0; i < g.numberOfNodes; i++ {
+		fmt.Println(fmt.Sprintf("%d --> %v", i, g.adjacentList[i]))
+	}
+
+}
+
 func samples() {
 
 	// 	  (2)--(0)
