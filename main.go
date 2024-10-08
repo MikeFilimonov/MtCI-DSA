@@ -2,6 +2,7 @@ package main
 
 import (
 	"MtCI-DSA/algos/recursion"
+	"MtCI-DSA/algos/sorting"
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/graphs"
 	"MtCI-DSA/hashmaps"
@@ -23,15 +24,32 @@ func main() {
 	// qosSession()
 	// treesSession()
 	// graphSession()
-	recursiveBlock()
+	// recursiveBlock()
+	sortingBlock()
+
+}
+
+func sortingBlock() {
+
+	// input := []int{9, 1, 4, 5, 3, 6, 0}
+
+	// fmt.Printf("%v\n", sorting.BubbleSort(input))
+
+	// input = []int{9, 1, 4, 5, 3, 6, 0}
+
+	// fmt.Printf("%v\n", sorting.SelectionSort(input))
+
+	input := []int{9, 1, 4, 5, 3, 6, 0}
+	fmt.Printf("%v\n", sorting.InsertionSort(input))
+
 }
 
 func recursiveBlock() {
 
-	// fmt.Println(recursion.FindFactorialIterative(5))
-	// fmt.Println(recursion.FindFactorialRecursive(5))
-	// fmt.Println(recursion.FibonacciIterative(8))
-	// fmt.Println(recursion.FibonacciRecursive(8))
+	fmt.Println(recursion.FindFactorialIterative(5))
+	fmt.Println(recursion.FindFactorialRecursive(5))
+	fmt.Println(recursion.FibonacciIterative(8))
+	fmt.Println(recursion.FibonacciRecursive(8))
 
 	fmt.Println(recursion.RevertStringIteratively("fuckdictators"))
 	fmt.Println(recursion.RevertStringIteratively("fuckdictators"))
