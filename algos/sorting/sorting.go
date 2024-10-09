@@ -63,3 +63,46 @@ func InsertionSort(input []int) []int {
 	return input
 
 }
+
+func MergeSort(input []int) []int {
+
+	if len(input) < 2 {
+		return input
+	}
+
+	leftPart := MergeSort(input[:len(input)/2])
+	rightPart := MergeSort(input[len(input)/2:])
+
+	return merge(leftPart, rightPart)
+
+}
+
+func merge(leftPart []int, rightPart []int) []int {
+
+	result := []int{}
+
+	i := 0
+	j := 0
+
+	for i < len(leftPart) && j < len(rightPart) {
+
+		if leftPart[i] < rightPart[j] {
+			result = append(result, leftPart[i])
+			i++
+		} else {
+			result = append(result, rightPart[j])
+			j++
+		}
+	}
+
+	for ; i < len(leftPart); i++ {
+		result = append(result, leftPart[i])
+	}
+
+	for ; j < len(rightPart); j++ {
+		result = append(result, rightPart[j])
+	}
+
+	return result
+
+}

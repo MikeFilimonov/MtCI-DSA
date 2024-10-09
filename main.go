@@ -39,8 +39,11 @@ func sortingBlock() {
 
 	// fmt.Printf("%v\n", sorting.SelectionSort(input))
 
+	// input := []int{9, 1, 4, 5, 3, 6, 0}
+	// fmt.Printf("%v\n", sorting.InsertionSort(input))
+
 	input := []int{9, 1, 4, 5, 3, 6, 0}
-	fmt.Printf("%v\n", sorting.InsertionSort(input))
+	fmt.Printf("%v\n", sorting.MergeSort(input))
 
 }
 
