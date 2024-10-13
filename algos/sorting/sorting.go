@@ -182,3 +182,39 @@ func partionThatFails(input []int) int {
 	return j
 
 }
+
+func theory() {
+
+	//  Pick the most fit sorting algorithms for the given scenarios:
+
+	// #1 - Sort 10 schools around your house by distance:
+
+	/*  The array is almost sorted, as schools are around the house, so
+	Insertion sort could be fine for it*/
+
+	// #2 - eBay sorts listings by the current Bid amount:
+	/* We have a huge amount of data so the best idea is to use something really
+	efficient, dealing with ints: Radix or Counting sort could be ok
+	Merge sort is also good*/
+
+	// #3 - Sport scores on ESPN:
+	/* A lot of non-numeric data, so MergeSort, QuickSort or HeapSort could help*/
+
+	// #4 - Massive database (can't fit all into memory) needs to sort through past year's user data:
+	/*Looks like a job for a MergeSort*/
+
+	// #5 - Almost sorted Udemy review data needs to update and add 2 new reviews:
+
+	/* Almost sorted data could be sorted either with Insertion sorting or Heap sorting*/
+
+	// #6 - Temperature Records for the past 50 years in Canada:
+	/* Numeric data could be effectively sorted with any of these: Radix, Counting, MergeSort or QuickSort*/
+
+	// #7 - Large user name database needs to be sorted. Data is very random:
+
+	/* MergeSort or Quicksort are here to help*/
+
+	// #8 - You want to teach sorting for the first time:
+	/* Bubble sort and Selection sort could come in handy*/
+
+}
