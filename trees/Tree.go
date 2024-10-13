@@ -31,6 +31,54 @@ func NewBinaryTree(value int) *BinaryTree {
 	}
 }
 
+func (t *BinaryTree) BreadthFirstSearch() []int {
+
+	currentNode := t.root
+	var list []int
+	var queue []*BinaryTreeNode
+	queue = append(queue, currentNode)
+
+	for len(queue) > 0 {
+		currentNode = queue[0]
+		queue = queue[1:]
+
+		list = append(list, currentNode.data)
+		if currentNode.leftSideOfTheTree != nil {
+			queue = append(queue, currentNode.leftSideOfTheTree)
+		}
+
+		if currentNode.rightSideOfTheTree != nil {
+			queue = append(queue, currentNode.rightSideOfTheTree)
+		}
+
+	}
+
+	return list
+
+}
+
+func (t *BinaryTree) RecursiveBreadthFirstSearch(queue []*BinaryTreeNode, list []int) []int {
+
+	if len(queue) == 0 {
+		return list
+	}
+
+	currentNode := queue[0]
+	list = append(list, currentNode.data)
+	queue = queue[1:]
+
+	if currentNode.leftSideOfTheTree != nil {
+		queue = append(queue, currentNode.leftSideOfTheTree)
+	}
+
+	if currentNode.rightSideOfTheTree != nil {
+		queue = append(queue, currentNode.rightSideOfTheTree)
+	}
+
+	return t.RecursiveBreadthFirstSearch(queue, list)
+
+}
+
 func (t *BinaryTree) Root() *BinaryTreeNode {
 	return t.root
 }

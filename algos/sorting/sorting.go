@@ -198,7 +198,8 @@ func theory() {
 	Merge sort is also good*/
 
 	// #3 - Sport scores on ESPN:
-	/* A lot of non-numeric data, so MergeSort, QuickSort or HeapSort could help*/
+	/* A lot of non-numeric data, so QuickSort,
+	MergeSort (could be too much of space complexity) or HeapSort could help*/
 
 	// #4 - Massive database (can't fit all into memory) needs to sort through past year's user data:
 	/*Looks like a job for a MergeSort*/
@@ -208,7 +209,8 @@ func theory() {
 	/* Almost sorted data could be sorted either with Insertion sorting or Heap sorting*/
 
 	// #6 - Temperature Records for the past 50 years in Canada:
-	/* Numeric data could be effectively sorted with any of these: Radix, Counting, MergeSort or QuickSort*/
+	/* Numeric data could be effectively sorted with any of these: Radix, Counting - having no decimals ,
+	otherwise it would be  MergeSort or QuickSort*/
 
 	// #7 - Large user name database needs to be sorted. Data is very random:
 

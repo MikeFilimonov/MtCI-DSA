@@ -2,6 +2,7 @@ package main
 
 import (
 	"MtCI-DSA/algos/recursion"
+	"MtCI-DSA/algos/searching"
 	"MtCI-DSA/algos/sorting"
 	"MtCI-DSA/arrays"
 	"MtCI-DSA/graphs"
@@ -25,27 +26,34 @@ func main() {
 	// treesSession()
 	// graphSession()
 	// recursiveBlock()
-	sortingBlock()
+	// sortingBlock()
+	searchBlock()
+}
+
+func searchBlock() {
+
+	fmt.Printf("%v", searching.BreadthFirstSearch())
+	fmt.Printf("%v", searching.RecursiveBreadthFirstSearch())
 
 }
 
 func sortingBlock() {
 
-	// input := []int{9, 1, 4, 5, 3, 6, 0}
-
-	// fmt.Printf("%v\n", sorting.BubbleSort(input))
-
-	// input = []int{9, 1, 4, 5, 3, 6, 0}
-
-	// fmt.Printf("%v\n", sorting.SelectionSort(input))
-
-	// input := []int{9, 1, 4, 5, 3, 6, 0}
-	// fmt.Printf("%v\n", sorting.InsertionSort(input))
-
-	// input := []int{9, 1, 4, 5, 3, 6, 0}
-	// fmt.Printf("%v\n", sorting.MergeSort(input))
-
 	input := []int{9, 1, 4, 5, 3, 6, 0}
+
+	fmt.Printf("%v\n", sorting.BubbleSort(input))
+
+	input = []int{9, 1, 4, 5, 3, 6, 0}
+
+	fmt.Printf("%v\n", sorting.SelectionSort(input))
+
+	input = []int{9, 1, 4, 5, 3, 6, 0}
+	fmt.Printf("%v\n", sorting.InsertionSort(input))
+
+	input = []int{9, 1, 4, 5, 3, 6, 0}
+	fmt.Printf("%v\n", sorting.MergeSort(input))
+
+	input = []int{9, 1, 4, 5, 3, 6, 0}
 	sorting.QuickSort(input, 0, len(input)-1)
 	fmt.Printf("%v\n", input)
 
