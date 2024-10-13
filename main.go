@@ -32,8 +32,11 @@ func main() {
 
 func searchBlock() {
 
-	fmt.Printf("%v", searching.BreadthFirstSearch())
-	fmt.Printf("%v", searching.RecursiveBreadthFirstSearch())
+	// fmt.Printf("%v", searching.BreadthFirstSearch())
+	// fmt.Printf("%v", searching.RecursiveBreadthFirstSearch())
+	fmt.Printf("%v\n", searching.InorderDepthFirstSearch())
+	fmt.Printf("%v\n", searching.PreorderDepthFirtstSearch())
+	fmt.Printf("%v\n", searching.PostorderDepthFirstSearch())
 
 }
 

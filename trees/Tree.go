@@ -79,6 +79,53 @@ func (t *BinaryTree) RecursiveBreadthFirstSearch(queue []*BinaryTreeNode, list [
 
 }
 
+func (t *BinaryTree) PreorderDepthFirstSearch(node *BinaryTreeNode) []int {
+
+	result := make([]int, 0)
+
+	if node == nil {
+		return result
+	}
+
+	result = append(result, node.data)
+	result = append(result, t.PreorderDepthFirstSearch(node.leftSideOfTheTree)...)
+	result = append(result, t.PreorderDepthFirstSearch(node.rightSideOfTheTree)...)
+
+	return result
+
+}
+
+func (t *BinaryTree) InorderDepthFirstSearch(node *BinaryTreeNode) []int {
+
+	result := make([]int, 0)
+
+	if node == nil {
+		return result
+	}
+
+	result = append(result, t.InorderDepthFirstSearch(node.leftSideOfTheTree)...)
+	result = append(result, node.data)
+	result = append(result, t.InorderDepthFirstSearch(node.rightSideOfTheTree)...)
+
+	return result
+
+}
+
+func (t *BinaryTree) PostorderDepthFirstSearch(node *BinaryTreeNode) []int {
+
+	result := make([]int, 0)
+	if node == nil {
+		return result
+	}
+
+	result = append(result, t.PostorderDepthFirstSearch(node.leftSideOfTheTree)...)
+	result = append(result, t.PostorderDepthFirstSearch(node.rightSideOfTheTree)...)
+	result = append(result, node.data)
+
+	return result
+
+}
+
 func (t *BinaryTree) Root() *BinaryTreeNode {
 	return t.root
 }

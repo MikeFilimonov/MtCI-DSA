@@ -20,6 +20,26 @@ func RecursiveBreadthFirstSearch() []int {
 
 }
 
+func InorderDepthFirstSearch() []int {
+
+	bst := dummyTree()
+	return bst.InorderDepthFirstSearch(bst.Root())
+
+}
+
+func PreorderDepthFirtstSearch() []int {
+
+	bst := dummyTree()
+	return bst.PreorderDepthFirstSearch(bst.Root())
+}
+
+func PostorderDepthFirstSearch() []int {
+
+	bst := dummyTree()
+	return bst.PostorderDepthFirstSearch(bst.Root())
+
+}
+
 func dummyTree() *trees.BinaryTree {
 
 	bst := trees.NewBinaryTree(9)
