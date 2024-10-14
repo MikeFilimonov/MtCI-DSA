@@ -31,6 +31,32 @@ func NewBinaryTree(value int) *BinaryTree {
 	}
 }
 
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isValidBST(root *BinaryTreeNode) bool {
+
+	if root == nil {
+		return true
+	}
+
+	if root.leftSideOfTheTree != nil && root.data < root.leftSideOfTheTree.data {
+		return false
+	}
+
+	if root.rightSideOfTheTree != nil && root.data > root.rightSideOfTheTree.data {
+		return false
+	}
+
+	return isValidBST(root.leftSideOfTheTree) && isValidBST(root.rightSideOfTheTree)
+
+}
+
 func (t *BinaryTree) BreadthFirstSearch() []int {
 
 	currentNode := t.root
