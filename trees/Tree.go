@@ -41,19 +41,25 @@ func NewBinaryTree(value int) *BinaryTree {
  */
 func isValidBST(root *BinaryTreeNode) bool {
 
+	return isValidNode(root, nil, nil)
+
+}
+
+func isValidNode(root, minNode, maxNode *BinaryTreeNode) bool {
+
 	if root == nil {
 		return true
 	}
 
-	if root.leftSideOfTheTree != nil && root.data < root.leftSideOfTheTree.data {
+	if minNode != nil && root.data <= minNode.data {
 		return false
 	}
 
-	if root.rightSideOfTheTree != nil && root.data > root.rightSideOfTheTree.data {
+	if maxNode != nil && root.data >= maxNode.data {
 		return false
 	}
 
-	return isValidBST(root.leftSideOfTheTree) && isValidBST(root.rightSideOfTheTree)
+	return isValidNode(root.leftSideOfTheTree, minNode, root) && isValidNode(root.rightSideOfTheTree, root, maxNode)
 
 }
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	dynamicprogramming "MtCI-DSA/algos/dynamic_programming"
 	"MtCI-DSA/algos/recursion"
 	"MtCI-DSA/algos/searching"
 	"MtCI-DSA/algos/sorting"
@@ -27,13 +28,26 @@ func main() {
 	// graphSession()
 	// recursiveBlock()
 	// sortingBlock()
-	searchBlock()
+	// searchBlock()
+	dynamicProgrammingPart()
+}
+
+func dynamicProgrammingPart() {
+
+	var cache dynamicprogramming.Memoized
+	cache.Function = dynamicprogramming.Fibo
+	cache.Cache = make(map[int]int)
+
+	fmt.Printf("%v\n ", cache.DynamicFibonacciNumbers(10))
+
+	fmt.Printf("%v\n", dynamicprogramming.RealDynamicFibbo(10))
 }
 
 func searchBlock() {
 
 	// fmt.Printf("%v", searching.BreadthFirstSearch())
 	// fmt.Printf("%v", searching.RecursiveBreadthFirstSearch())
+
 	fmt.Printf("%v\n", searching.InorderDepthFirstSearch())
 	fmt.Printf("%v\n", searching.PreorderDepthFirtstSearch())
 	fmt.Printf("%v\n", searching.PostorderDepthFirstSearch())
