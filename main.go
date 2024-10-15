@@ -41,6 +41,8 @@ func dynamicProgrammingPart() {
 	fmt.Printf("%v\n ", cache.DynamicFibonacciNumbers(10))
 
 	fmt.Printf("%v\n", dynamicprogramming.RealDynamicFibbo(10))
+
+	fmt.Printf("Bottom-top-Fibo: %v\n", dynamicprogramming.BottomTopFibo(10))
 }
 
 func searchBlock() {
